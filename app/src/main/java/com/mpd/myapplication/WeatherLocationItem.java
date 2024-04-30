@@ -10,14 +10,13 @@ import java.util.Map;
 
 public class WeatherLocationItem {
     private Map<String, String>  data;
-    public int id = 1;
-
-//    public WeatherLocationItem(int id, Map<String, String> data){
-//        this.data = data;
-//        this.id = id;
-//    }
+    public Integer id;
+    public String urlId;
+    public String day = "today";
+    public String description;
     public void setDetails( Map<String, String> data) {
         this.data = data;
+
     }
 
     public Map<String, String> getData() {
@@ -42,5 +41,18 @@ public class WeatherLocationItem {
 
     public String getId() {
         return Integer.toString(this.id);
+    }
+
+    public void setUrlId(String id){
+        this.urlId = id;
+    }
+
+    public String getUrlId(){
+        return urlId;
+    }
+
+
+    public String getTemperatureMaximum() {
+        return data.get("Temperature")
     }
 }

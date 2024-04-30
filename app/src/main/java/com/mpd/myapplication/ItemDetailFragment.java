@@ -14,6 +14,12 @@ import android.widget.TextView;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.mpd.myapplication.placeholder.PlaceholderContent;
 import com.mpd.myapplication.databinding.FragmentItemDetailBinding;
+import com.mpd.myapplication.weatherLocation.WeatherLocationContent;
+import com.mpd.myapplication.weatherLocation.WeatherLocationContentForcast;
+
+import org.w3c.dom.Text;
+
+import java.util.List;
 
 /**
  * A fragment representing a single Item detail screen.
@@ -28,22 +34,14 @@ public class ItemDetailFragment extends Fragment {
      * represents.
      */
     public static final String ARG_ITEM_ID = "item_id";
-
+    public static final String  ARG_ITEM_LOCATION = "item_location";
+    private List<WeatherLocationItem> mItem;
+    private View rootView ;
     /**
      * The placeholder content this fragment is presenting.
      */
-    private PlaceholderContent.PlaceholderItem mItem;
     private CollapsingToolbarLayout mToolbarLayout;
-    private TextView mTextView;
 
-    private final View.OnDragListener dragListener = (v, event) -> {
-        if (event.getAction() == DragEvent.ACTION_DROP) {
-            ClipData.Item clipDataItem = event.getClipData().getItemAt(0);
-            mItem = PlaceholderContent.ITEM_MAP.get(clipDataItem.getText().toString());
-            updateContent();
-        }
-        return true;
-    };
     private FragmentItemDetailBinding binding;
 
     /**
@@ -58,10 +56,16 @@ public class ItemDetailFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         if (getArguments().containsKey(ARG_ITEM_ID)) {
-            // Load the placeholder content specified by the fragment
-            // arguments. In a real-world scenario, use a Loader
-            // to load content from a content provider.
-            mItem = PlaceholderContent.ITEM_MAP.get(getArguments().getString(ARG_ITEM_ID));
+
+            new Thread(() -> {
+                WeatherLocationContentForcast weatherLocationForcast = new WeatherLocationContentForcast();
+                mItem = weatherLocationForcast.fetchWeatherData(getArguments().getString(ARG_ITEM_ID));
+                if (getActivity() != null) {
+                    getActivity().runOnUiThread(this::updateContent);
+                }
+                // Process or update UI with weather data as needed, ensuring any UI updates are posted back to the main thread
+            }).start();
+
         }
     }
 
@@ -70,14 +74,11 @@ public class ItemDetailFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         binding = FragmentItemDetailBinding.inflate(inflater, container, false);
-        View rootView = binding.getRoot();
+        rootView = binding.getRoot();
 
         mToolbarLayout = rootView.findViewById(R.id.toolbar_layout);
-        mTextView = binding.itemDetail;
-
-        // Show the placeholder content as text in a TextView & in the toolbar if available.
         updateContent();
-        rootView.setOnDragListener(dragListener);
+
         return rootView;
     }
 
@@ -89,9 +90,36 @@ public class ItemDetailFragment extends Fragment {
 
     private void updateContent() {
         if (mItem != null) {
-            mTextView.setText(mItem.details);
+            TextView textView;
+            for (int i = 0; i < mItem.size(); i++) {
+                WeatherLocationItem item = mItem.get(i);
+
+                textView = rootView.findViewById(
+                        getResources().getIdentifier("textTemperature" + i, "id", getActivity().getPackageName())
+                );
+                textView.setText(item.getTemperature());
+
+                textView = rootView.findViewById(
+                        getResources().getIdentifier("textDay" + i, "id", getActivity().getPackageName())
+                );
+                textView.setText(item.day);
+
+                textView = rootView.findViewById(
+                        getResources().getIdentifier("textDescription" + i, "id", getActivity().getPackageName())
+                );
+                textView.setText(item.description);
+
+                textView = rootView.findViewById(
+                        getResources().getIdentifier("textMaxMinTemperature" + i, "id", getActivity().getPackageName())
+                );
+                textView.setText("High: " + item.getTemperatureMaximum() +" | " + "Low: " + item.getTemperatureMinimum());
+
+
+            }
+
             if (mToolbarLayout != null) {
-                mToolbarLayout.setTitle(mItem.content);
+                assert getArguments() != null;
+                mToolbarLayout.setTitle(getArguments().getString(ARG_ITEM_LOCATION));
             }
         }
     }

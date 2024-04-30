@@ -35,7 +35,6 @@ public class WeatherLocationAdapter
                            View itemDetailFragmentContainer) {
         mValues = items;
         mItemDetailFragmentContainer = itemDetailFragmentContainer;
-//        context = c;
     }
 
     @Override
@@ -54,9 +53,11 @@ public class WeatherLocationAdapter
             holder.itemView.setOnClickListener(itemView -> {
                 //WeatherLocationItem item = (WeatherLocationItem) itemView.getTag();
                 Bundle arguments = new Bundle();
-                arguments.putString(ItemDetailFragment.ARG_ITEM_ID, String.valueOf(mValues.get(position)));
-                System.out.println("mItemDetailFragmentContainer");
-                System.out.println(mItemDetailFragmentContainer);
+
+                arguments.putString(ItemDetailFragment.ARG_ITEM_ID, mValues.get(position).getUrlId());
+                arguments.putString(ItemDetailFragment.ARG_ITEM_LOCATION, mValues.get(position).getLocation());
+
+
                 if (mItemDetailFragmentContainer != null) {
                     Navigation.findNavController(mItemDetailFragmentContainer)
                             .navigate(R.id.fragment_item_detail, arguments);
@@ -64,50 +65,6 @@ public class WeatherLocationAdapter
                     Navigation.findNavController(itemView).navigate(R.id.show_item_detail, arguments);
                 }
             });
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            /*
-             * Context click listener to handle Right click events
-             * from mice and trackpad input to provide a more native
-             * experience on larger screen devices
-             */
-//                holder.itemView.setOnContextClickListener(v -> {
-//                    weatherLocationContent.WeatherLocationItems item =
-//                            (weatherLocationContent.WeatherLocationItems) holder.itemView.getTag();
-//                    Toast.makeText(
-//                            holder.itemView.getContext(),
-//                            "Context click of item " + item.id,
-//                            Toast.LENGTH_LONG
-//                    ).show();
-//                    return true;
-//                });
-        }
-//            holder.itemView.setOnLongClickListener(v -> {
-//                // Setting the item id as the clip data so that the drop target is able to
-//                // identify the id of the content
-//                ClipData.Item clipItem = new ClipData.Item(mValues.get(position).id);
-//                ClipData dragData = new ClipData(
-//                        ((weatherLocationContent.WeatherLocationItems) v.getTag()).content,
-//                        new String[]{ClipDescription.MIMETYPE_TEXT_PLAIN},
-//                        clipItem
-//                );
-//
-//                if (Build.VERSION.SDK_INT >= 24) {
-//                    v.startDragAndDrop(
-//                            dragData,
-//                            new View.DragShadowBuilder(v),
-//                            null,
-//                            0
-//                    );
-//                } else {
-//                    v.startDrag(
-//                            dragData,
-//                            new View.DragShadowBuilder(v),
-//                            null,
-//                            0
-//                    );
-//                }
-//                return true;
-//            });
     }
 
     @Override

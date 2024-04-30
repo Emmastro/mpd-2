@@ -15,14 +15,10 @@ import org.xmlpull.v1.XmlPullParserFactory;
 
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Objects;
 
 public class WeatherLocationContent {
 
-    public static final Map<String, WeatherLocationItem> WEATHER_DETAILS = new HashMap<>();
     private final WeatherLocationAdapter adapter;
 
     public WeatherLocationContent(WeatherLocationAdapter adapter){
@@ -39,13 +35,11 @@ public class WeatherLocationContent {
     }
 
     public class FetchWeatherTask extends AsyncTask<String, Void, List<WeatherLocationItem>> {
-
-
         @Override
         protected List<WeatherLocationItem> doInBackground(String... params) {
             List<WeatherLocationItem> items = new ArrayList<>();
             try {
-                URL url = new URL(params[0]);
+                URL url = new URL("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/" + params[0]);
                 XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
                 XmlPullParser parser = factory.newPullParser();
                 parser.setInput(url.openConnection().getInputStream(), null);
@@ -55,13 +49,13 @@ public class WeatherLocationContent {
                     if (eventType == XmlPullParser.START_TAG && "item".equals(parser.getName())) {
                         WeatherLocationItem weatherLocationItem = new WeatherLocationItem();
                         while (!(eventType == XmlPullParser.END_TAG && "item".equals(parser.getName()))) {
-                            if (eventType == XmlPullParser.START_TAG) {
-                                if (Objects.equals(parser.getName(), "description")) {
-                                        String description = parser.nextText();
-                                        weatherLocationItem.setDetails(DataExtraction.extractWeatherDetails(description));
-                                        weatherLocationItem.setLocation(params[1]);
-                                        break;
-                                }
+
+                            if ("description".equals(parser.getName())) {
+                                String description = parser.nextText();
+                                weatherLocationItem.setDetails(DataExtraction.extractWeatherDetails(description));
+                                weatherLocationItem.setUrlId(params[0]);
+                                weatherLocationItem.setLocation(params[1]);
+                                break;
                             }
                             eventType = parser.next();
                         }
@@ -80,23 +74,19 @@ public class WeatherLocationContent {
             super.onPostExecute(result);
             if (!result.isEmpty()) {
                 adapter.mValues.addAll(result);
-                System.out.println("results: ");
-                System.out.println(result);
-
                 adapter.notifyDataSetChanged();
             }
-    }
+    }}
 
     public void loadWeatherData(Context context) throws JSONException {
 
         List<JSONObject> locationIds = LocationMappingLoader.loadJsonFile(context, "locations.json");
-        System.out.println("locations: ");
-        System.out.println(locationIds);
         adapter.mValues.clear();
         for (JSONObject id : locationIds) {
             new FetchWeatherTask().execute(
-                    "https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/" + id.get("locationId"),
+                    (String) id.get("locationId"),
                     (String) id.get("location"));
         }
     }
 }
+
