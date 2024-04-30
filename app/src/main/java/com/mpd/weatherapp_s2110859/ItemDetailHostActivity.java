@@ -1,4 +1,10 @@
-package com.mpd.myapplication;
+/*
+Name                 Emmanuel Bauma Murairi
+Student ID           s2110859
+Programme of Study   Computing
+*/
+
+package com.mpd.weatherapp_s2110859;
 
 import android.os.Bundle;
 
@@ -9,6 +15,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.mpd.myapplication.R;
 import com.mpd.myapplication.databinding.ActivityItemDetailBinding;
 
 public class ItemDetailHostActivity extends AppCompatActivity {

@@ -1,8 +1,13 @@
-package com.mpd.myapplication.weatherLocation;
+/*
+Name                 Emmanuel Bauma Murairi
+Student ID           s2110859
+Programme of Study   Computing
+*/
 
+package com.mpd.weatherapp_s2110859.weatherLocation;
 
-import com.mpd.myapplication.WeatherLocationItem;
-import com.mpd.myapplication.utils.DataExtraction;
+import com.mpd.weatherapp_s2110859.WeatherLocationItem;
+import com.mpd.weatherapp_s2110859.utils.DataExtraction;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;

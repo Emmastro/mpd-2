@@ -14,7 +14,7 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
-            android:name=".ItemDetailHostActivity"
+            android:name="com.mpd.weatherapp_s2110859.ItemDetailHostActivity"
             android:exported="true"
             android:label="@string/title_activity_item_detail_host"
             android:resizeableActivity="true"

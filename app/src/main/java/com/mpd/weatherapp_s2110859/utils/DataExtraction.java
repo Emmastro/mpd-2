@@ -4,7 +4,7 @@ Student ID           s2110859
 Programme of Study   Computing
 */
 
-package com.mpd.myapplication.utils;
+package com.mpd.weatherapp_s2110859.utils;
 
 import java.util.HashMap;
 import java.util.Map;

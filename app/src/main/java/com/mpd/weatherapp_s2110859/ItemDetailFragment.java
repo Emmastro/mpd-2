@@ -1,53 +1,43 @@
-package com.mpd.myapplication;
+/*
+Name                 Emmanuel Bauma Murairi
+Student ID           s2110859
+Programme of Study   Computing
+*/
 
-import android.content.ClipData;
+package com.mpd.weatherapp_s2110859;
+
+import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.view.DragEvent;
 
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.material.appbar.CollapsingToolbarLayout;
-import com.mpd.myapplication.placeholder.PlaceholderContent;
+import com.mpd.myapplication.R;
 import com.mpd.myapplication.databinding.FragmentItemDetailBinding;
-import com.mpd.myapplication.weatherLocation.WeatherLocationContent;
-import com.mpd.myapplication.weatherLocation.WeatherLocationContentForcast;
+import com.mpd.weatherapp_s2110859.weatherLocation.WeatherLocationContentForcast;
+import com.mpd.weatherapp_s2110859.utils.Constants;
 
-import org.w3c.dom.Text;
-
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-/**
- * A fragment representing a single Item detail screen.
- * This fragment is either contained in a {@link ItemListFragment}
- * in two-pane mode (on larger screen devices) or self-contained
- * on handsets.
- */
 public class ItemDetailFragment extends Fragment {
 
-    /**
-     * The fragment argument representing the item ID that this fragment
-     * represents.
-     */
+
     public static final String ARG_ITEM_ID = "item_id";
     public static final String  ARG_ITEM_LOCATION = "item_location";
     private List<WeatherLocationItem> mItem;
     private View rootView ;
-    /**
-     * The placeholder content this fragment is presenting.
-     */
     private CollapsingToolbarLayout mToolbarLayout;
-
+    private final Constants constants = new Constants();
     private FragmentItemDetailBinding binding;
 
-    /**
-     * Mandatory empty constructor for the fragment manager to instantiate the
-     * fragment (e.g. upon screen orientation changes).
-     */
     public ItemDetailFragment() {
     }
 
@@ -87,7 +77,7 @@ public class ItemDetailFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
-
+    @SuppressLint("SetTextI18n")
     private void updateContent() {
         if (mItem != null) {
             TextView textView;
@@ -114,6 +104,20 @@ public class ItemDetailFragment extends Fragment {
                 );
                 textView.setText("High: " + item.getTemperatureMaximum() +" | " + "Low: " + item.getTemperatureMinimum());
 
+                ImageView imageView = rootView.findViewById(
+                        getResources().getIdentifier("imageView" + i, "id", getActivity().getPackageName())
+                );
+
+                Integer drawableId = constants.weatherMap.get(item.description.strip());
+
+                if (drawableId == null) {
+                    drawableId = R.drawable.cloudy; // Default drawable if no match is found
+                }
+                else{
+                    System.out.println("setting new image" + drawableId + item.description);
+                }
+
+                imageView.setImageResource(drawableId);
 
             }
 

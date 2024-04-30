@@ -7,16 +7,16 @@
 
     <fragment
         android:id="@+id/item_list_fragment"
-        android:name="com.mpd.myapplication.ItemListFragment"
-        android:label="ItemListFragment">
+        android:name="com.mpd.weatherapp_s2110859.ItemListFragment"
+        android:label="Weather app - Home - s2110859">
         <action
             android:id="@+id/show_item_detail"
             app:destination="@id/item_detail_fragment" />
     </fragment>
     <fragment
         android:id="@+id/item_detail_fragment"
-        android:name="com.mpd.myapplication.ItemDetailFragment"
-        android:label="item_detail"
+        android:name="com.mpd.weatherapp_s2110859.ItemDetailFragment"
+        android:label="Weather app - s2110859"
         tools:layout="@layout/fragment_item_detail">
         <argument
             android:name="item_id"

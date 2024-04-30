@@ -4,10 +4,9 @@ Student ID           s2110859
 Programme of Study   Computing
 */
 
-package com.mpd.myapplication;
+package com.mpd.weatherapp_s2110859;
 
 import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,8 +16,9 @@ import android.widget.TextView;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.mpd.myapplication.R;
 import com.mpd.myapplication.databinding.WeatherLocationListContentBinding;
-import com.mpd.myapplication.weatherLocation.WeatherLocationContent;
+import com.mpd.weatherapp_s2110859.weatherLocation.WeatherLocationContent;
 
 import java.util.ArrayList;
 
@@ -51,7 +51,6 @@ public class WeatherLocationAdapter
         holder.itemView.setTag(mValues.get(position));
         holder.mLocationView.setText(mValues.get(position).getLocation());
             holder.itemView.setOnClickListener(itemView -> {
-                //WeatherLocationItem item = (WeatherLocationItem) itemView.getTag();
                 Bundle arguments = new Bundle();
 
                 arguments.putString(ItemDetailFragment.ARG_ITEM_ID, mValues.get(position).getUrlId());
@@ -66,7 +65,6 @@ public class WeatherLocationAdapter
                 }
             });
     }
-
     @Override
     public int getItemCount() {
         return mValues.size();

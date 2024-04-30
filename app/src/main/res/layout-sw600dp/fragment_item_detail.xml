@@ -12,5 +12,5 @@
         android:layout_height="match_parent"
         android:padding="16dp"
         android:textIsSelectable="true"
-        tools:context="com.mpd.myapplication.ItemDetailFragment" />
+        tools:context="com.mpd.myapplication.com.mpd.weatherapp_s2110859.ItemDetailFragment" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -16,6 +16,6 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         app:layoutManager="LinearLayoutManager"
-        tools:context="com.mpd.myapplication.ItemDetailHostActivity"
+        tools:context="com.mpd.myapplication.com.mpd.weatherapp_s2110859.ItemDetailHostActivity"
         tools:listitem="@layout/item_list_content" />
 </androidx.constraintlayout.widget.ConstraintLayout>

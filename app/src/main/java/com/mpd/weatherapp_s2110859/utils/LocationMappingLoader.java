@@ -1,5 +1,10 @@
-package com.mpd.myapplication.utils;
+/*
+Name                 Emmanuel Bauma Murairi
+Student ID           s2110859
+Programme of Study   Computing
+*/
 
+package com.mpd.weatherapp_s2110859.utils;
 import android.content.Context;
 
 import org.json.JSONArray;

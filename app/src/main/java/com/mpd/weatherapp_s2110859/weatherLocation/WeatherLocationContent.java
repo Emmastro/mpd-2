@@ -1,12 +1,18 @@
-package com.mpd.myapplication.weatherLocation;
+/*
+Name                 Emmanuel Bauma Murairi
+Student ID           s2110859
+Programme of Study   Computing
+*/
+
+package com.mpd.weatherapp_s2110859.weatherLocation;
 
 import android.content.Context;
 import android.os.AsyncTask;
 
-import com.mpd.myapplication.WeatherLocationAdapter;
-import com.mpd.myapplication.WeatherLocationItem;
-import com.mpd.myapplication.utils.DataExtraction;
-import com.mpd.myapplication.utils.LocationMappingLoader;
+import com.mpd.weatherapp_s2110859.WeatherLocationAdapter;
+import com.mpd.weatherapp_s2110859.WeatherLocationItem;
+import com.mpd.weatherapp_s2110859.utils.DataExtraction;
+import com.mpd.weatherapp_s2110859.utils.LocationMappingLoader;
 
 import org.json.JSONException;
 import org.json.JSONObject;

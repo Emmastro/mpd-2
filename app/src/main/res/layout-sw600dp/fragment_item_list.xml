@@ -17,7 +17,7 @@
         app:layout_constraintEnd_toStartOf="@id/guideline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:context="com.mpd.myapplication.ItemDetailHostActivity"
+        tools:context="com.mpd.myapplication.com.mpd.weatherapp_s2110859.ItemDetailHostActivity"
         tools:listitem="@layout/item_list_content" />
 
     <androidx.constraintlayout.widget.Guideline

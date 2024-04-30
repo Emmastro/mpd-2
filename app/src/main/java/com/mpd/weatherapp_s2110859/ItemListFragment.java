@@ -1,5 +1,10 @@
-package com.mpd.myapplication;
+/*
+Name                 Emmanuel Bauma Murairi
+Student ID           s2110859
+Programme of Study   Computing
+*/
 
+package com.mpd.weatherapp_s2110859;
 
 import android.os.Bundle;
 
@@ -13,9 +18,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.mpd.myapplication.R;
 import com.mpd.myapplication.databinding.FragmentItemListBinding;
 
-import com.mpd.myapplication.weatherLocation.WeatherLocationContent;
+import com.mpd.weatherapp_s2110859.weatherLocation.WeatherLocationContent;
 
 import org.json.JSONException;
 

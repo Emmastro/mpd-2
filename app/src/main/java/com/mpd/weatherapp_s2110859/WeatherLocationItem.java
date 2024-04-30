@@ -4,7 +4,7 @@ Student ID           s2110859
 Programme of Study   Computing
 */
 
-package com.mpd.myapplication;
+package com.mpd.weatherapp_s2110859;
 
 import java.util.Map;
 
@@ -53,6 +53,43 @@ public class WeatherLocationItem {
 
 
     public String getTemperatureMaximum() {
-        return data.get("Temperature")
+        return data.get("Maximum Temperature");
     }
+
+    public String getTemperatureMinimum(){
+        return data.get("Minimum Temperature");
+    }
+
+    public String getWindDirection() {
+        return data.get("Wind Direction");
+    }
+
+    public String getWindSpeed() {
+        return data.get("Wind Speed");
+    }
+
+    public String getHumidity() {
+        return data.get("Humidity");
+    }
+
+    public String getVisibility() {
+        return data.get("Visibility");
+    }
+
+    public String getUVRisk() {
+        return data.get("UV Risk");
+    }
+
+    public String getPollution() {
+        return data.get("Pollution");
+    }
+
+    public String getSunrise() {
+        return data.get("Sunrise");
+    }
+
+    public String getSunset() {
+        return data.get("Sunset");
+    }
+
 }

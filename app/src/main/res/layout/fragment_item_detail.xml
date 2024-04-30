@@ -5,7 +5,7 @@
     android:id="@+id/item_detail_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ItemDetailHostActivity"
+    tools:context="com.mpd.weatherapp_s2110859.ItemDetailHostActivity"
     tools:ignore="MergeRootFrame">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -33,6 +33,11 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
     <LinearLayout
         android:id="@+id/item_detail_scroll_view"
         android:layout_width="match_parent"
@@ -54,12 +59,12 @@
                 android:layout_height="45dp"
                 android:layout_marginEnd="24dp"
                 android:contentDescription="TODO"
-                android:tint="#8B4D4D"
                 app:layout_constraintBottom_toBottomOf="@+id/textTemperature0"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0"
-                app:srcCompat="@drawable/cloudy" />
+                app:srcCompat="@drawable/cloudy"
+                app:tint="#8B4D4D" />
 
             <TextView
                 android:id="@+id/textDay0"
@@ -244,5 +249,7 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
