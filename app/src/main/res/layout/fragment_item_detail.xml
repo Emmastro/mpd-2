@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+Name                 Emmanuel Bauma Murairi
+Student ID           s2110859
+Programme of Study   Computing
+-->
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/item_detail_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.mpd.weatherapp_s2110859.ItemDetailHostActivity"
+    tools:context="com.mpd.myapplication.ItemDetailHostActivity"
     tools:ignore="MergeRootFrame">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -58,13 +63,13 @@
                 android:layout_width="45dp"
                 android:layout_height="45dp"
                 android:layout_marginEnd="24dp"
-                android:contentDescription="TODO"
+                android:contentDescription="text"
                 app:layout_constraintBottom_toBottomOf="@+id/textTemperature0"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0"
                 app:srcCompat="@drawable/cloudy"
-                app:tint="#8B4D4D" />
+                app:tint="#EDEDED" />
 
             <TextView
                 android:id="@+id/textDay0"
@@ -72,7 +77,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="24dp"
-                android:text="textDay"
+                android:text="text"
+                android:textColor="#EDEDED"
                 android:textSize="34sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -85,7 +91,8 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="4dp"
-                android:text="25 C"
+                android:text="text"
+                android:textColor="#EDEDED"
                 android:textSize="34sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -98,7 +105,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="8dp"
-                android:text="Text description"
+                android:text="text"
+                android:textColor="#EDEDED"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textTemperature0" />
 
@@ -108,7 +116,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="8dp"
-                android:text="High 28c | Low 23"
+                android:text="text"
+                android:textColor="#EDEDED"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textDescription0"
@@ -125,13 +134,13 @@
                 android:layout_width="45dp"
                 android:layout_height="45dp"
                 android:layout_marginEnd="24dp"
-                android:contentDescription="TODO"
-                android:tint="#8B4D4D"
+                android:contentDescription="text"
                 app:layout_constraintBottom_toBottomOf="@+id/textTemperature1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0"
-                app:srcCompat="@drawable/cloudy" />
+                app:srcCompat="@drawable/cloudy"
+                app:tint="#EDEDED" />
 
             <TextView
                 android:id="@+id/textDay1"
@@ -139,7 +148,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="24dp"
-                android:text="textDay"
+                android:text="text"
+                android:textColor="#EDEDED"
                 android:textSize="34sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -152,7 +162,8 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginBottom="4dp"
-                android:text="25 C"
+                android:text="text"
+                android:textColor="#EDEDED"
                 android:textSize="34sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -165,7 +176,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="8dp"
-                android:text="Text description"
+                android:textColor="#EDEDED"
+                android:text="text"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textTemperature1" />
 
@@ -175,7 +187,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="8dp"
-                android:text="High 28c | Low 23"
+                android:text="text"
+                android:textColor="#EDEDED"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textDescription1"
@@ -192,13 +205,12 @@
                 android:layout_width="45dp"
                 android:layout_height="45dp"
                 android:layout_marginEnd="24dp"
-                android:contentDescription="TODO"
-                android:tint="#8B4D4D"
                 app:layout_constraintBottom_toBottomOf="@+id/textTemperature2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0"
-                app:srcCompat="@drawable/cloudy" />
+                app:srcCompat="@drawable/cloudy"
+                app:tint="#EDEDED" />
 
             <TextView
                 android:id="@+id/textDay2"
@@ -206,8 +218,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="24dp"
-                android:text="textDay2"
+                android:text=""
                 android:textSize="34sp"
+                android:textColor="#EDEDED"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -219,8 +232,9 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginBottom="4dp"
-                android:text="25 C"
+                android:text=""
                 android:textSize="34sp"
+                android:textColor="#EDEDED"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textDay2"
@@ -232,7 +246,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="8dp"
-                android:text="Text description"
+                android:text=""
+                android:textColor="#EDEDED"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textTemperature2" />
 
@@ -242,7 +257,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="8dp"
-                android:text="High 28c | Low 23"
+                android:text=""
+                android:textColor="#EDEDED"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textDescription2" />
