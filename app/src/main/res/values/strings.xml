@@ -1,11 +1,13 @@
 <resources>
     <string name="app_name">Weather app - s2110859</string>
-    <string name="title_activity_item_detail_host">ItemDetailHostActivity</string>
+    <string name="title_activity_item_detail_host">Details - s2110859</string>
     <string name="title_item_list">Items</string>
     <string name="title_item_detail">Item Detail</string>
-    <string name="title_home">Home</string>
+    <string name="title_home">Home - s2110859</string>
     <string name="title_activity_maps">MapsActivity</string>
-    <string name="title_map">Map</string>
+    <string name="title_map">Map </string>
     <string name="title_about">About</string>
-
+    <string name="title_activity_main">Weather app - s2110859</string>
+    <string name="title_dashboard">Weather app map - s2110859</string>
+    <string name="title_notifications">Notifications - s2110859</string>
 </resources>

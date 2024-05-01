@@ -1,7 +1,10 @@
+/*
+Name                 Emmanuel Bauma Murairi
+Student ID           s2110859
+Programme of Study   Computing
+*/
+
 package com.mpd.myapplication.utils;
-
-
-
 import com.mpd.myapplication.R;
 
 import java.util.HashMap;

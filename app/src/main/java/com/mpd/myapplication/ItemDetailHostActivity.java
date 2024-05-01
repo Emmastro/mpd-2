@@ -28,6 +28,7 @@ public class ItemDetailHostActivity extends AppCompatActivity {
 
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.nav_host_fragment_item_detail);
+        // Setting up NavController from NavHostFragment
         NavController navController = navHostFragment.getNavController();
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.
                 Builder(navController.getGraph())
@@ -41,4 +42,5 @@ public class ItemDetailHostActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_item_detail);
         return navController.navigateUp() || super.onSupportNavigateUp();
     }
+
 }

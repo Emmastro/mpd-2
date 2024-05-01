@@ -23,26 +23,20 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WeatherLocationContent {
+public class WeatherLocationContentNoAdapter {
 
-    private WeatherLocationAdapter adapter;
-
-    public WeatherLocationContent(WeatherLocationAdapter adapter){
-        this.adapter = adapter;
+    public interface WeatherDataCallback {
+        void onDataLoaded(List<WeatherLocationItem> items) throws JSONException;
     }
-
-    private static String makeDetails(int position) {
-        StringBuilder builder = new StringBuilder();
-        builder.append("Details about Item: ").append(position);
-        for (int i = 0; i < position; i++) {
-            builder.append("\nMore details information here.");
-        }
-        return builder.toString();
-    }
-
 
 
     public class FetchWeatherTask extends AsyncTask<String, Void, List<WeatherLocationItem>> {
+
+        private WeatherDataCallback callback;
+        public FetchWeatherTask(WeatherDataCallback callback) {
+            this.callback = callback;
+        }
+
         @Override
         protected List<WeatherLocationItem> doInBackground(String... params) {
             List<WeatherLocationItem> items = new ArrayList<>();
@@ -82,18 +76,22 @@ public class WeatherLocationContent {
         @Override
         protected void onPostExecute(List<WeatherLocationItem> result) {
             super.onPostExecute(result);
-            if (!result.isEmpty()) {
-                adapter.mValues.addAll(result);
-                adapter.notifyDataSetChanged();
+            if (callback != null && result != null) {
+                try {
+                    callback.onDataLoaded(result);
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
+                }
             }
-    }}
+    }
+    }
 
-    public void loadWeatherData(Context context) throws JSONException {
+    public void loadWeatherData(Context context, WeatherDataCallback callback) throws JSONException {
 
         List<JSONObject> locationIds = LocationMappingLoader.loadJsonFile(context, "locations.json");
-        adapter.mValues.clear();
+
         for (JSONObject id : locationIds) {
-            new FetchWeatherTask().execute(
+            new FetchWeatherTask(callback).execute(
                     (String) id.get("locationId"),
                     (String) id.get("location"),
                     (String) id.get("longitude"),

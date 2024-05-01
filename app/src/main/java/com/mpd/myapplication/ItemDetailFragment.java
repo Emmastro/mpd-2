@@ -85,30 +85,6 @@ public class ItemDetailFragment extends Fragment {
                 int maxMinTempId = getResources().getIdentifier("textMaxMinTemperature" + i, "id", getActivity().getPackageName());
                 int imageId = getResources().getIdentifier("imageView" + i, "id", getActivity().getPackageName());
 
-//
-//                textView = rootView.findViewById(
-//                        getResources().getIdentifier("textTemperature" + i, "id", getActivity().getPackageName())
-//                );
-//                textView.setText(item.getTemperature());
-//
-//                textView = rootView.findViewById(
-//                        getResources().getIdentifier("textDay" + i, "id", getActivity().getPackageName())
-//                );
-//                textView.setText(item.day);
-//
-//                textView = rootView.findViewById(
-//                        getResources().getIdentifier("textDescription" + i, "id", getActivity().getPackageName())
-//                );
-//                textView.setText(item.description);
-//
-//                textView = rootView.findViewById(
-//                        getResources().getIdentifier("textMaxMinTemperature" + i, "id", getActivity().getPackageName())
-//                );
-//                textView.setText("High: " + item.getTemperatureMaximum() +" | " + "Low: " + item.getTemperatureMinimum());
-//
-//                ImageView imageView = rootView.findViewById(
-//                        getResources().getIdentifier("imageView" + i, "id", getActivity().getPackageName())
-//                );
 
                 textView = (TextView) rootView.findViewById(tempId);
                 textView.setText(item.getTemperature());
@@ -137,10 +113,10 @@ public class ItemDetailFragment extends Fragment {
 
             }
 
-//            if (mToolbarLayout != null) {
-//                assert getArguments() != null;
-//                mToolbarLayout.setTitle(getArguments().getString(ARG_ITEM_LOCATION));
-//            }
+            if (mToolbarLayout != null) {
+                assert getArguments() != null;
+                mToolbarLayout.setTitle(getArguments().getString(ARG_ITEM_LOCATION));
+            }
         }
     }
 }

@@ -14,6 +14,8 @@ public class WeatherLocationItem {
     public String urlId;
     public String day = "today";
     public String description;
+    public double longitude;
+    public double latitude;
     public void setDetails( Map<String, String> data) {
         this.data = data;
 
@@ -92,4 +94,21 @@ public class WeatherLocationItem {
         return data.get("Sunset");
     }
 
+    public void setLongitude(String longitude) {
+        this.longitude = Double.parseDouble(longitude);
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = Double.parseDouble(latitude);
+    }
+
+    /*
+    * Returns all data points in a formated manner, with each in a row  with end of line at the end*/
+    public String getFormatedAll(){
+        StringBuilder builder = new StringBuilder();
+        for (Map.Entry<String, String> entry : data.entrySet()) {
+            builder.append(entry.getKey()).append(": ").append(entry.getValue()).append("\n");
+        }
+        return builder.toString();
+    }
 }
